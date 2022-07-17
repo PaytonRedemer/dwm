@@ -877,7 +877,7 @@ focusstack(const Arg *arg)
         Client *c, *p;
         int i = stackpos(arg);
 
-        if(i < 0)
+        if(i < 0 || !selmon->sel || selmon->sel->isfullscreen)
 		return;
 	
         for(p = NULL, c = selmon->clients; c && (i || !ISVISIBLE(c));
